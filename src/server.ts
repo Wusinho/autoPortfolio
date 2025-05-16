@@ -1,6 +1,6 @@
 import express from "express";
-import profileRouter from "./routes/profile";
-import pinnedRouter from "./routes/pinned";
+import profileRouter from "./routes/profile.js";
+import pinnedRouter from "./routes/pinned.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;

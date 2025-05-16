@@ -2,7 +2,7 @@ import { Router } from "express";
 import axios from "axios";
 import { marked } from "marked";
 import * as cheerio from "cheerio";
-import { ProfileData } from "../types/Profile";
+import { ProfileData } from "../types/profile";
 import dotenv from "dotenv";
 
 const router = Router();
