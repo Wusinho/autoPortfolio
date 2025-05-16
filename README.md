@@ -21,3 +21,33 @@ git clone https://github.com/your-user/autoportfolio-scraper.git
 cd autoportfolio-scraper
 npm install
 ```
+### 2. Set up environment variables
+
+```bash
+GITHUB_USERNAME=YourGitHubUsername
+GITHUB_TOKEN=YourGitHubPersonalAccessToken
+```
+
+## 🧼 Tech Stack
+- TypeScript
+- Express.js
+- dotenv
+- graphql-request
+- cheerio
+- marked
+- ts-node + nodemon (dev)
+
+### Author
+
+👤 **Heber Lazo**
+
+- Github: [@Wusinho](https://github.com/Wusinho)
+- LinkedIn: [Heber Lazo](https://www.linkedin.com/in/heber-lazo-benza-523266133/)
+
+### License
+
+This project is [MIT](LICENSE) licensed.
+
+## Show your support
+
+Give a star if you :star: like this project!
