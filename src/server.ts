@@ -1,10 +1,12 @@
 import express from "express";
 import profileRouter from "./routes/profile";
+import pinnedRouter from "./routes/pinned";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use("/profile", profileRouter);
+app.use("/pinned", pinnedRouter);
 
 app.get("/", (_, res) => {
   res.send("autoPortfolio scraper API running");
