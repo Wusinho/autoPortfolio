@@ -1,5 +1,5 @@
 import express from "express";
-import profileRouter from "./routes/profile.js";
+import profileRouter from "./routes/profile";
 
 const app = express();
 const PORT = process.env.PORT || 3000;

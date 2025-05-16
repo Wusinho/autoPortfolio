@@ -2,7 +2,7 @@ import { Router } from "express";
 import axios from "axios";
 import { marked } from "marked";
 import * as cheerio from "cheerio";
-import { ProfileData } from "../types/Profile.js";
+import { ProfileData } from "../types/Profile";
 
 const router = Router();
 
@@ -12,8 +12,8 @@ router.get("/", async (_, res) => {
       "https://raw.githubusercontent.com/Wusinho/Wusinho/main/README.md";
     const { data: markdown } = await axios.get(rawUrl);
 
-    const html = marked(markdown);
-    const $ = cheerio.load(html);
+    const html = await marked(markdown); // ✅ FIXED HERE
+    const $ = cheerio.load(html);        // ✅ VALID NOW
 
     const bio = $("p").first().text().trim();
 
@@ -31,7 +31,6 @@ router.get("/", async (_, res) => {
     });
 
     const result: ProfileData = { bio, languages, stack };
-
     res.json(result);
   } catch (err: any) {
     console.error("❌ Error parsing profile:", err.message);
