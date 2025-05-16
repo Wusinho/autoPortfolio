@@ -12,8 +12,8 @@ router.get("/", async (_, res) => {
       "https://raw.githubusercontent.com/Wusinho/Wusinho/main/README.md";
     const { data: markdown } = await axios.get(rawUrl);
 
-    const html = await marked(markdown); // ✅ FIXED HERE
-    const $ = cheerio.load(html);        // ✅ VALID NOW
+    const html = await marked(markdown); 
+    const $ = cheerio.load(html);
 
     const bio = $("p").first().text().trim();
 
@@ -33,7 +33,7 @@ router.get("/", async (_, res) => {
     const result: ProfileData = { bio, languages, stack };
     res.json(result);
   } catch (err: any) {
-    console.error("❌ Error parsing profile:", err.message);
+    console.error("Error parsing profile:", err.message);
     res.status(500).json({ error: "Failed to parse profile" });
   }
 });
