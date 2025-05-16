@@ -3,13 +3,16 @@ import axios from "axios";
 import { marked } from "marked";
 import * as cheerio from "cheerio";
 import { ProfileData } from "../types/Profile";
+import dotenv from "dotenv";
 
 const router = Router();
+dotenv.config();
 
 router.get("/", async (_, res) => {
+  const username = process.env.GITHUB_USERNAME;
+  if (!username) throw new Error("Missing Github Username")
   try {
-    const rawUrl =
-      "https://raw.githubusercontent.com/Wusinho/Wusinho/main/README.md";
+    const rawUrl = `https://raw.githubusercontent.com/${username}/${username}/main/README.md`;
     const { data: markdown } = await axios.get(rawUrl);
 
     const html = await marked(markdown); 
